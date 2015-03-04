@@ -3,7 +3,7 @@ extends layout
 block content
   style(type='text/css').
     .transparent{
-      border: 0px;
+      border: 0;
       background-color: transparent;
     }
     td {
@@ -12,293 +12,294 @@ block content
     .NAME {
       min-width:60px;
     }
-  .row
-    .col-md-1
-    .col-md-5
-      #company
-        label 单位:
-        input.transparent.NAME
-    .col-md-5
-      #ID(style="text-align:right;")
-        label 编号:
-        input.transparent
+  form(method='post')
+    .row
+      .col-md-1
+      .col-md-8
+        #company
+          label 单位:
+          input.transparent.NAME(name="company")
+      .col-md-3
+        #ID
+          label 编号:
+          input.transparent(name="id")
 
-    .col-md-1
-  .row
-    .col-md-12
-       .table-responsive
-         table.table.table-bordered.table-hover.table-condensed(style="width:auto;")
-           //table(border='0', cellpadding='0', cellspacing='0')
-           tr
-             td(colspan='1' align='center') 浇注日期
-             td(colspan='4', align='center')
-                input(type='date', style="border:0px;background-color:transparent;")
-             td(colspan='2', align='center') 收样日期
-             td(colspan='4', align='center')
-               input(type='date', style="border:0px;background-color:transparent;")
-             td(colspan='2', align='center') 报告日期
-             td(colspan='4', align='center')
-               input(type='date', style="border:0px;background-color:transparent;")
-           tr(valign='middle')
-             td(colspan='1', rowspan='2', align='center') 式样名称
-             td(rowspan='2', align='center') 炉别
-             td(rowspan='2', align='center') 编号
-             td(rowspan='2', align='center') 碳%
-             td(rowspan='2', align='center') 硫%
-             td(rowspan='2', align='center') 硅%
-             td(rowspan='2', align='center') 磷%
-             td(rowspan='2', align='center') 锰%
-             td(rowspan='2', align='center') 铬%
-             td(rowspan='2', align='center') 铝%
-             td(rowspan='2', align='center') 铜%
-             td(rowspan='2', align='center') 硬度
-             td(colspan='5', align='center') 力学性能
-           tr(valign='middle')
-             td(colspan='2', align='center') 抗拉MPA
-             td 看不清%
-             td(colspan='2', align='center') 看不清%
-           tr(valign='middle')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-           tr(valign='middle')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-           tr(valign='middle')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-           tr(valign='middle')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-           tr(valign='middle')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-           tr(valign='middle')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-           tr(valign='middle')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent.NAME(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-             td
-               input.form-control.transparent(type='text')
-             td(colspan=2)
-               input.form-control.transparent(type='text')
-           tr
-             td(colspan=1) 分析者
-             td(colspan=5)
-               input.form-control.transparent.NAME(type='text')
-             td(colspan=2) 审核
-             td(colspan=4)
-               input.form-control.transparent.NAME(type='text')
-             td(colspan=2) 日期
-             td(colspan=2)
-               input(type='date', style="border:0px;background-color:transparent;")
-           tr
-             td(colspan=1) 处理意见
-             td(colspan=11)
-               input.form-control.transparent.NAME(type='text')
-             td(colspan=2) 日期
-             td(colspan=2)
-               input(type='date', style="border:0px;background-color:transparent;")
+      .col-md-1
+    .row
+      .col-md-12
+         .table-responsive
+           table.table.table-bordered.table-hover.table-condensed(style="width:auto;")
+             //table(border='0', cellpadding='0', cellspacing='0')
+             tr
+               td(colspan='1' align='center') 浇注日期
+               td(colspan='4', align='center')
+                  input(type='date', style="border:0px;background-color:transparent;", name="jzdate")
+               td(colspan='2', align='center') 收样日期
+               td(colspan='4', align='center')
+                 input(type='date', style="border:0px;background-color:transparent;", name="sydate")
+               td(colspan='2', align='center') 报告日期
+               td(colspan='4', align='center')
+                 input(type='date', style="border:0px;background-color:transparent;", name="bgdate")
+             tr(valign='middle')
+               td(colspan='1', rowspan='2', align='center') 式样名称
+               td(rowspan='2', align='center') 炉别
+               td(rowspan='2', align='center') 编号
+               td(rowspan='2', align='center') 碳%
+               td(rowspan='2', align='center') 硫%
+               td(rowspan='2', align='center') 硅%
+               td(rowspan='2', align='center') 磷%
+               td(rowspan='2', align='center') 锰%
+               td(rowspan='2', align='center') 铬%
+               td(rowspan='2', align='center') 铝%
+               td(rowspan='2', align='center') 铜%
+               td(rowspan='2', align='center') 硬度
+               td(colspan='5', align='center') 力学性能
+             tr(valign='middle')
+               td(colspan='2', align='center') 抗拉MPA
+               td 看不清%
+               td(colspan='2', align='center') 看不清%
+             tr(valign='middle')
+               td
+                 input.form-control.transparent.NAME(type='text', name="1_1")
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+             tr(valign='middle')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+             tr(valign='middle')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+             tr(valign='middle')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+             tr(valign='middle')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+             tr(valign='middle')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+             tr(valign='middle')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent.NAME(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+               td
+                 input.form-control.transparent(type='text')
+               td(colspan=2)
+                 input.form-control.transparent(type='text')
+             tr
+               td(colspan=1) 分析者
+               td(colspan=5)
+                 input.form-control.transparent.NAME(type='text')
+               td(colspan=2) 审核
+               td(colspan=4)
+                 input.form-control.transparent.NAME(type='text')
+               td(colspan=2) 日期
+               td(colspan=2)
+                 input(type='date', style="border:0px;background-color:transparent;")
+             tr
+               td(colspan=1) 处理意见
+               td(colspan=11)
+                 input.form-control.transparent.NAME(type='text')
+               td(colspan=2) 日期
+               td(colspan=2)
+                 input(type='date', style="border:0px;background-color:transparent;")
 
-  .row
-    .col-md-1
-    .col-md-2
-    .col-md-4
-      button.btn.btn-primary.btn-lg 保存
-    .col-md-3
-      button.btn.btn-primary.btn-lg 打印
+    .row
+      .col-md-1
+      .col-md-2
+      .col-md-4
+        button.btn.btn-primary.btn-lg(type='submit') 保存
+      .col-md-3
+        button.btn.btn-primary.btn-lg 打印
   script.
     $('input').unbind('keydown').bind("keyup",function(){
       //输入框 自适应宽度
