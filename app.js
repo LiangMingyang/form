@@ -4,7 +4,21 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mysql = require('mysql');
+var config = require('./config');
 
+// Connect to server on startup
+global.connect = mysql.createConnection(
+    config.database
+);
+
+global.connect.connect(function (err) {
+    if (err) {
+        console.log(err.message);
+        return;
+    }
+    console.log('Successfully connected Database!');
+});
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
