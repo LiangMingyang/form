@@ -2,11 +2,24 @@
  * Created by 明阳 on 2015/3/8.
  */
 
-//var strftime = require("strftime");
+var strftime = require("strftime");
 var connect = global.connect;
 var trim = require('trim');
 
-
+var jsonToAnd = function (data) {
+    var list = [];
+    var relation = data.relation;
+    if (relation) {
+        for (var i in relation) {
+            list.push(i + ' = ' + relation[i]);
+        }
+    }
+    for (var j in data) {
+        if (j == 'relation')continue;
+        list.push(j + ' = ' + '\'' + data[j] + '\'');
+    }
+    return ' ' + list.join(' AND ') + ' ';
+};
 
 var select = function (table, condition, callback, columns) { // SELECT语句的封装，便于重用
     condition = jsonToAnd(condition);
@@ -20,6 +33,8 @@ var select = function (table, condition, callback, columns) { // SELECT语句的
         connect.query('SELECT * FROM ?? ' + condition, [table], callback);
     }
 };
+
+exports.select = select;
 
 var find = function (table, condition, res, columns) { // 用于绝大多数find函数，便于重用
     select(table, condition, function (err, rows) {
@@ -113,4 +128,47 @@ exports.saveReport = function (req, res) {
         }
         res.render('index',{title:"保存成功"});
     });
+};
+
+exports.showAll = function (req, res) {
+    var table = 'report';
+    connect.query('SELECT * FROM ?? ', [table], function (err, rows) {
+        if (err) {
+            res.json({
+                msg: 1,
+                info: err.message
+            });
+            return;
+        }
+        //console.log(typeof(rows[0].jzdate));
+        res.render('showAll' ,{report:rows});
+    });
+};
+
+exports.edit = function (req, res) {
+    var table = "report";
+    var data = {};
+    data.company = req.body.company;
+    delete req.body.company;
+    data.id = req.body.id;
+    delete req.body.id;
+    data.jzdate = req.body.jzdate;
+    delete req.body.jzdate;
+    data.sydate = req.body.sydate;
+    delete req.body.sydate;
+    data.bgdate = req.body.bgdate;
+    delete req.body.bgdate;
+    data.data = JSON.stringify(req.body);
+    var condition = {
+        id:data.id
+    };
+    condition = jsonToAnd(condition);
+    connect.query('UPDATE ?? SET ? WHERE ' + condition, [table, data], function(err, result) {
+        if(err) {
+            console.log(err.message);
+            res.render('error', err.message);
+            return ;
+        }
+        res.redirect('/showAll');
+    })
 };

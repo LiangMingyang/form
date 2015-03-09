@@ -1,35 +1,40 @@
+//
+   Created by 明阳 on 2015/3/9.
+
 extends  layout
+
 block content
     style(type='text/css').
-        .transparent {
+        .transparent{
             border: 0;
             background-color: transparent;
         }
-
         td {
             text-align: center;
         }
-
         .NAME {
-            min-width: 60px;
+            min-width:60px;
         }
+
     .row
         .col-md-1
         .col-md-10
             #topic(style="text-align:center;")
                 h2 聊城市兴华理化服务中心理化检测报告单
         .col-md-1
-    form(method='post')
+
+    form(method='post', action="/edit")
         .row
             .col-md-1
             .col-md-8
                 #company
                     label 单位:
-                    input.transparent.NAME(name="company")
+                    input.transparent.NAME(name="company", value=company)
             .col-md-3
                 #ID
                     label 编号:
-                    input.transparent(name="id", required="required")
+                    input.transparent(name="id", value=id, readonly)
+
             .col-md-1
         .row
             .col-md-12
@@ -37,15 +42,17 @@ block content
                     table.table.table-bordered.table-hover.table-condensed(style="width:auto;")
                         //table(border='0', cellpadding='0', cellspacing='0')
                         tr
+                            - var date;
                             td(colspan='1' align='center') 浇注日期
                             td(colspan='4', align='center')
-                                input(type='date', style="border:0px;background-color:transparent;", name="jzdate", autocomplete=true)
+                                input(type='date', style="border:0px;background-color:transparent;", name="jzdate", value=jzdate)
                             td(colspan='2', align='center') 收样日期
                             td(colspan='4', align='center')
-                                input(type='date', style="border:0px;background-color:transparent;", name="sydate", autocomplete=true)
+                                input(type='date', style="border:0px;background-color:transparent;", name="sydate", value=sydate)
                             td(colspan='2', align='center') 报告日期
                             td(colspan='4', align='center')
-                                input(type='date', style="border:0px;background-color:transparent;", name="bgdate", autocomplete=true)
+                                - var date = new Date(bgdate);
+                                input(type='date', style="border:0px;background-color:transparent;", name="bgdate", value=bgdate)
                         tr(valign='middle')
                             td(colspan='1', rowspan='2', align='center') 式样名称
                             td(rowspan='2', align='center') 炉别
@@ -65,27 +72,29 @@ block content
                             td 看不清%
                             td(colspan='2', align='center') 看不清%
                         - var ele = ['C','S','Si','P','Mn','Cr','Al','Cu'];
+                        - var content = JSON.parse(data);
                         - for(var row = 0 ; row < 7 ; ++row) {
                             tr(valign='middle')
                                 td
-                                    input.form-control.transparent.NAME(type='text', name="name" + "_" + row)
+                                    input.form-control.transparent.NAME(type='text', name="name"+"_"+row , value=content["name"+"_"+row])
                                 td
-                                    input.form-control.transparent.NAME(type='text', name="hearth" + "_" + row)
+                                    input.form-control.transparent.NAME(type='text', name="hearth"+"_"+row, value=content["hearth"+"_"+row])
                                 td
-                                    input.form-control.transparent.NAME(type='text', name="number" + "_" + row)
+                                    input.form-control.transparent.NAME(type='text', name="number"+"_"+row, value=content["number"+"_"+row])
                                 - for(var col = 0 ; col < 8 ; ++col) {
                                     td
-                                        input.form-control.transparent(type='text', name=ele[col] + "_" + row)
+                                        input.form-control.transparent(type='text', name=ele[col]+"_"+row, value=content[ele[col]+"_"+row])
                                 -}
                                 td
-                                    input.form-control.transparent(type='text', name="hardness" + "_" + row)
+                                    input.form-control.transparent(type='text', name="hardness"+"_"+row, value=content["hardness"+"_"+row])
                                 td(colspan=2)
-                                    input.form-control.transparent(type='text', name="MPA" + "_" + row)
+                                    input.form-control.transparent(type='text', name="MPA"+"_"+row, value = content["MPA"+"_"+row])
                                 td
-                                    input.form-control.transparent(type='text', name="unknown1" + "_" + row)
+                                    input.form-control.transparent(type='text', name="unknown1"+"_"+row)
                                 td(colspan=2)
-                                    input.form-control.transparent(type='text', name="unknown2" + "_" + row)
+                                    input.form-control.transparent(type='text', name="unknown2"+"_"+row)
                         -}
+
                         tr
                             td(colspan=1) 分析者
                             td(colspan=5)
@@ -104,11 +113,12 @@ block content
                             td(colspan=2) 日期
                             td(colspan=2)
                                 input(type='date', style="border:0px;background-color:transparent;", name="clrq")
+
         .row
             .col-md-1
             .col-md-2
             .col-md-4
-                button.btn.btn-primary.btn-lg(type='submit') 保存
+                button.btn.btn-primary.btn-lg(type='submit') 确定编辑
             .col-md-3
                 button.btn.btn-primary.btn-lg 打印
     script.
@@ -119,6 +129,8 @@ block content
                 size = inputTag.val().length;
                 var beta = 8;
                 if (inputTag.hasClass('NAME'))beta = 15;
+                //inputTag.attr("size",(size==0?1:size)*beta);
                 inputTag.width(size * beta);
             });
+
         });
