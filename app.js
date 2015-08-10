@@ -4,21 +4,21 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mysql = require('mysql');
-var config = require('./config');
+//var mysql = require('mysql');
+//var config = require('./config');
 
 // Connect to server on startup
-global.connect = mysql.createConnection(
-    config.database
-);
+//global.connect = mysql.createConnection(
+//    config.database
+//);
 
-global.connect.connect(function (err) {
-    if (err) {
-        console.log(err.message);
-        return;
-    }
-    console.log('Successfully connected Database!');
-});
+//global.connect.connect(function (err) {
+//    if (err) {
+//        console.log(err.message);
+//        return;
+//    }
+//    console.log('Successfully connected Database!');
+//});
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -37,7 +37,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+//app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
