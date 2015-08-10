@@ -4,8 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var config = require('./config');
 //var mysql = require('mysql');
-//var config = require('./config');
 
 // Connect to server on startup
 //global.connect = mysql.createConnection(
@@ -70,5 +70,11 @@ app.use(function(err, req, res, next) {
   });
 });
 
+global.db = require('./database')(
+    config.database.name,
+    config.database.username,
+    config.database.password,
+    config.database.config
+);
 
 module.exports = app;

@@ -33,8 +33,7 @@ block content
             .col-md-3
                 #ID
                     label 编号:
-                    input.transparent(name="id", value=id, readonly)
-
+                    input.transparent(name="id", value=number)
             .col-md-1
         .row
             .col-md-12
@@ -72,7 +71,7 @@ block content
                             td 看不清%
                             td(colspan='2', align='center') 看不清%
                         - var ele = ['C','S','Si','P','Mn','Cr','Al','Cu'];
-                        - var content = JSON.parse(data);
+                        //- var content = JSON.parse(data);
                         - for(var row = 0 ; row < 7 ; ++row) {
                             tr(valign='middle')
                                 td

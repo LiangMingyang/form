@@ -28,15 +28,12 @@ block content
                     - for(var i = 0 ; i < report.length ; ++i) {
                         tr
                             th
-                                a(href='/view?id='+report[i].id)=report[i].id
+                                a(href='/view?number='+report[i].number)=report[i].number
                             th=report[i].company
-                            - var mydate = new Date(report[i].jzdate);
-                            th=mydate.getFullYear()+'-'+(mydate.getMonth()+1)+'-'+mydate.getDate()
-                            - mydate = new Date(report[i].sydate);
-                            th=mydate.getFullYear()+'-'+(mydate.getMonth()+1)+'-'+mydate.getDate()
-                            - mydate = new Date(report[i].bgdate);
-                            th=mydate.getFullYear()+'-'+(mydate.getMonth()+1)+'-'+mydate.getDate()
-                            th="zzzz"
+                            th=report[i].jzdate
+                            th=report[i].sydate
+                            th=report[i].bgdate
+                            th="暂时没做"
                     - }
         .col-md-1
     script.

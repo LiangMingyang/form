@@ -25,11 +25,11 @@ block content
             .col-md-8
                 #company
                     label 单位:
-                    input.transparent.NAME(name="company")
+                    input.transparent.NAME(name="company", required="required")
             .col-md-3
                 #ID
                     label 编号:
-                    input.transparent(name="id", required="required")
+                    input.transparent(name="id", type='number' required="required")
             .col-md-1
         .row
             .col-md-12
@@ -119,6 +119,6 @@ block content
                 size = inputTag.val().length;
                 var beta = 8;
                 if (inputTag.hasClass('NAME'))beta = 15;
-                inputTag.width(size * beta);
+                inputTag.width(size * beta+30);
             });
         });
