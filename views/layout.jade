@@ -16,15 +16,29 @@ html.no-js(lang='')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='apple-touch-icon', href='apple-touch-icon.png')
         link(rel='stylesheet', href='css/bootstrap.min.css')
+        link(rel='stylesheet', href='css/bootstrap-theme.min.css')
+        link(rel='stylesheet', href='css/main.css')
+        link(rel='stylesheet', href='css/jquery.dataTables.min.css')
         style.
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
             }
-        link(rel='stylesheet', href='css/bootstrap-theme.min.css')
-        link(rel='stylesheet', href='css/main.css')
-        link(rel='stylesheet', href='css/jquery.dataTables.min.css')
-
+            footer {
+                margin: 8px auto 0 auto;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                overflow: hidden;
+                padding-bottom: 0px;
+                color: #CCC;
+                word-spacing: 3px;
+                zoom: 1;
+            }
+            td {
+                border: 1px solid #000;
+            }
 
         script(src='js/vendor/jquery-1.11.2.min.js')
         script(src='js/vendor/bootstrap.min.js')
@@ -60,8 +74,7 @@ html.no-js(lang='')
                                 a(href="/showAll") 所有单子
                     // /.navbar-collapse
             // Main jumbotron for a primary marketing message- or call to action
-
-        .jumbotron
+        div
             .container
                 block content
                     h1 Hello, world!

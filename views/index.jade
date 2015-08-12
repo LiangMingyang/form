@@ -17,7 +17,7 @@ block content
         .col-md-1
         .col-md-10
             #topic(style="text-align:center;")
-                h2 聊城市兴华理化服务中心理化检测报告单
+                h2 聊城市兴华检测技术有限公司理化检测报告单
         .col-md-1
     form(method='post')
         .row
@@ -34,7 +34,7 @@ block content
         .row
             .col-md-12
                 .table-responsive
-                    table.table.table-bordered.table-hover.table-condensed(style="width:auto;")
+                    table.table-hover.table-condensed(style="width:auto;")
                         //table(border='0', cellpadding='0', cellspacing='0')
                         tr
                             td(colspan='1' align='center') 浇注日期
@@ -62,8 +62,8 @@ block content
                             td(colspan='5', align='center') 力学性能
                         tr(valign='middle')
                             td(colspan='2', align='center') 抗拉MPA
-                            td 看不清%
-                            td(colspan='2', align='center') 看不清%
+                            td 屈服MPA
+                            td(colspan='2', align='center') 延伸%
                         - var ele = ['C','S','Si','P','Mn','Cr','Al','Cu'];
                         - for(var row = 0 ; row < 7 ; ++row) {
                             tr(valign='middle')
@@ -115,10 +115,10 @@ block content
         $(function () {
             $('input').unbind('keydown').bind("keyup", function () {
                 //输入框 自适应宽度
-                var inputTag = $(this);
-                size = inputTag.val().length;
-                var beta = 8;
-                if (inputTag.hasClass('NAME'))beta = 15;
-                inputTag.width(size * beta+30);
+                var input = $(this)
+                var size = input.val().length;
+                var base = 8;
+                if (input.hasClass('NAME'))base = 12;
+                input.width(size * base+30);
             });
         });
