@@ -11,7 +11,7 @@ block content
         }
 
         .NAME {
-            min-width: 60px;
+            min-width: 120px;
         }
     .row
         .col-md-1
@@ -123,12 +123,12 @@ block content
                 button.btn.btn-primary.btn-lg 打印
     script.
         $(function () {
-            $('input').unbind('keydown').bind("keyup", function () {
+            $('.NAME').unbind('keydown').bind("keyup", function () {
                 //输入框 自适应宽度
                 var input = $(this)
                 var size = input.val().length;
-                var base = 8;
-                if (input.hasClass('NAME'))base = 12;
+                var base = 12
+                if(size > 8)
                 input.width(size * base+30);
             });
         });
