@@ -15,6 +15,14 @@ block content
         .NAME {
             min-width:120px;
         }
+
+        .ELE {
+            min-width: 80px;
+        }
+
+        .ID {
+            min-width: 50px;
+        }
     .row
         .col-md-1
         .col-md-10
@@ -53,21 +61,20 @@ block content
                                 input(type='date', style="border:0px;background-color:transparent;", name="bgdate", value=bgdate)
                         tr(valign='middle')
                             td(colspan='1', rowspan='2', align='center') 式样名称
-                            td(rowspan='2', align='center') 炉别
-                            td(rowspan='2', align='center') 编号
-                            td(rowspan='2', align='center') 碳%
-                            td(rowspan='2', align='center') 硫%
-                            td(rowspan='2', align='center') 硅%
-                            td(rowspan='2', align='center') 磷%
-                            td(rowspan='2', align='center') 锰%
-                            td(rowspan='2', align='center') 铬%
-                            td(rowspan='2', align='center') 铝%
-                            td(rowspan='2', align='center') 铜%
+                            td.ID(rowspan='2', align='center') 编号
+                            td.ELE(rowspan='2', align='center') 碳%
+                            td.ELE(rowspan='2', align='center') 硫%
+                            td.ELE(rowspan='2', align='center') 硅%
+                            td.ELE(rowspan='2', align='center') 磷%
+                            td.ELE(rowspan='2', align='center') 锰%
+                            td.ELE(rowspan='2', align='center') 铬%
+                            td.ELE(rowspan='2', align='center') 铝%
+                            td.ELE(rowspan='2', align='center') 铜%
                             td(rowspan='2', align='center') 硬度
                         tr(valign='middle')
-                            td(colspan='2', align='center') 抗拉MPA
-                            td 屈服MPA
-                            td(colspan='2', align='center') 延伸%
+                            td(colspan='2' align='center') 抗拉MPA
+                            td(align='center') 屈服MPA
+                            td(colspan='2' align='center') 延伸%
                         - var ele = ['C','S','Si','P','Mn','Cr','Al','Cu'];
                         //- var content = JSON.parse(data);
                         - for(var row = 0 ; row < 7 ; ++row) {
@@ -75,20 +82,18 @@ block content
                                 td
                                     input.form-control.transparent.NAME(type='text', name="name"+"_"+row , value=content["name"+"_"+row])
                                 td
-                                    input.form-control.transparent.NAME(type='text', name="hearth"+"_"+row, value=content["hearth"+"_"+row])
-                                td
-                                    input.form-control.transparent.NAME(type='text', name="number"+"_"+row, value=content["number"+"_"+row])
+                                    input.form-control.transparent(type='text', name="number"+"_"+row, value=content["number"+"_"+row])
                                 - for(var col = 0 ; col < 8 ; ++col) {
                                     td
                                         input.form-control.transparent(type='text', name=ele[col]+"_"+row, value=content[ele[col]+"_"+row])
                                 -}
                                 td
                                     input.form-control.transparent(type='text', name="hardness"+"_"+row, value=content["hardness"+"_"+row])
-                                td(colspan=2)
+                                td(colspan='2')
                                     input.form-control.transparent(type='text', name="MPA"+"_"+row, value = content["MPA"+"_"+row])
                                 td
                                     input.form-control.transparent(type='text', name="unknown1"+"_"+row)
-                                td(colspan=2)
+                                td(colspan='2')
                                     input.form-control.transparent(type='text', name="unknown2"+"_"+row)
                         -}
 
@@ -97,14 +102,14 @@ block content
                             td(colspan=5)
                                 input.form-control.transparent.NAME(type='text', name="fxz")
                             td(colspan=2) 审核
-                            td(colspan=4)
+                            td(colspan=3)
                                 input.form-control.transparent.NAME(type='text', name="shyj")
                             td(colspan=2) 日期
                             td(colspan=2)
                                 input(type='date', style="border:0px;background-color:transparent;", name="shrq")
                         tr
                             td(colspan=1) 处理意见
-                            td(colspan=11)
+                            td(colspan=10)
                                 //te.form-control.transparent.NAME(type='text',
                                 textarea.form-control.transparent(name="clyj")
                             td(colspan=2) 日期
